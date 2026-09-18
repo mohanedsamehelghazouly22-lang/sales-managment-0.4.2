@@ -26,7 +26,7 @@ jobs:
 
       - name: Generate missing platform folders
         working-directory: ${{ steps.find.outputs.dir }}
-        run: flutter create --platforms=android .
+        run: flutter create --platforms=android --project-name sales_manager .
 
       - name: Get dependencies
         working-directory: ${{ steps.find.outputs.dir }}
@@ -69,7 +69,7 @@ jobs:
 
       - name: Generate missing platform folders
         working-directory: ${{ steps.find.outputs.dir }}
-        run: flutter create --platforms=windows .
+        run: flutter create --platforms=windows --project-name sales_manager .
 
       - name: Get dependencies
         working-directory: ${{ steps.find.outputs.dir }}
