@@ -9,6 +9,9 @@ jobs:
   build-android:
     name: Build APK
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sales_manager_v0.4
     steps:
       - uses: actions/checkout@v4
 
@@ -30,11 +33,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sales-manager-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: sales_manager_v0.4/build/app/outputs/flutter-apk/app-release.apk
 
   build-windows:
     name: Build Windows exe
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: sales_manager_v0.4
     steps:
       - uses: actions/checkout@v4
 
@@ -59,4 +65,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sales-manager-windows
-          path: build/windows/x64/runner/Release/
+          path: sales_manager_v0.4/build/windows/x64/runner/Release/
