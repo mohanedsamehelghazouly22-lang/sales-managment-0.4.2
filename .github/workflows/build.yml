@@ -29,6 +29,7 @@ jobs:
         run: |
           flutter create --platforms=android --project-name sales_manager .
           sed -i 's/compileSdk = flutter.compileSdkVersion/compileSdk = 36/' android/app/build.gradle.kts
+          sed -i '/<manifest /a\    <uses-permission android:name="android.permission.INTERNET"/>' android/app/src/main/AndroidManifest.xml
 
       - name: Get dependencies
         working-directory: ${{ steps.find.outputs.dir }}
