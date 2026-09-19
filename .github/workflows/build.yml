@@ -24,13 +24,10 @@ jobs:
           flutter-version: '3.47.1'
           channel: 'stable'
 
-      - name: Generate missing platform folders
-        working-directory: ${{ steps.find.outputs.dir }}
-        run: flutter create --platforms=android --project-name sales_manager .
-
-      - name: Force compileSdk 36
+      - name: Generate platform folders and fix compileSdk
         working-directory: ${{ steps.find.outputs.dir }}
         run: |
+          flutter create --platforms=android --project-name sales_manager .
           sed -i 's/compileSdk = flutter.compileSdkVersion/compileSdk = 36/' android/app/build.gradle
           sed -i 's/compileSdkVersion flutter.compileSdkVersion/compileSdkVersion 36/' android/app/build.gradle
 
